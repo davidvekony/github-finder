@@ -1712,6 +1712,10 @@ html {
   pointer-events: none;
 }
 
+.btn.\!loading, .btn.\!loading:hover {
+  pointer-events: none !important;
+}
+
 .btn.loading:before {
   margin-right: 0.5rem;
   height: 1rem;
@@ -1727,10 +1731,30 @@ html {
   border-right-color: currentColor;
 }
 
+.btn.\!loading:before {
+  margin-right: 0.5rem !important;
+  height: 1rem !important;
+  width: 1rem !important;
+  border-radius: 9999px !important;
+  border-width: 2px !important;
+  -webkit-animation: spin 2s linear infinite !important;
+          animation: spin 2s linear infinite !important;
+  content: "" !important;
+  border-top-color: transparent !important;
+  border-left-color: transparent !important;
+  border-bottom-color: currentColor !important;
+  border-right-color: currentColor !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .btn.loading:before {
     -webkit-animation: spin 10s linear infinite;
             animation: spin 10s linear infinite;
+  }
+
+  .btn.\!loading:before {
+    -webkit-animation: spin 10s linear infinite !important;
+            animation: spin 10s linear infinite !important;
   }
 }
 
@@ -1815,22 +1839,6 @@ html {
 .hero > * {
   grid-column-start: 1;
   grid-row-start: 1;
-}
-
-.hero-content {
-  z-index: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 80rem;
-  gap: 1rem;
-  padding: 1rem;
-}
-
-.link {
-  cursor: pointer;
-  -webkit-text-decoration-line: underline;
-  text-decoration-line: underline;
 }
 
 .navbar {
@@ -1974,14 +1982,28 @@ html {
   margin-right: 0px;
 }
 
+.btn.\!loading.btn-square:before, .btn.\!loading.btn-circle:before {
+  margin-right: 0px !important;
+}
+
 .btn.loading.btn-xl:before, .btn.loading.btn-lg:before {
   height: 1.25rem;
   width: 1.25rem;
 }
 
+.btn.\!loading.btn-xl:before, .btn.\!loading.btn-lg:before {
+  height: 1.25rem !important;
+  width: 1.25rem !important;
+}
+
 .btn.loading.btn-sm:before, .btn.loading.btn-xs:before {
   height: 0.75rem;
   width: 0.75rem;
+}
+
+.btn.\!loading.btn-sm:before, .btn.\!loading.btn-xs:before {
+  height: 0.75rem !important;
+  width: 0.75rem !important;
 }
 
 .btn-group > input[type="radio"]:checked.btn, .btn-group > .btn-active {
@@ -2076,16 +2098,6 @@ html {
 
 .drawer-toggle:focus-visible ~ .drawer-content .drawer-button.btn-ghost {
   outline: 2px solid currentColor;
-}
-
-.link:focus {
-  outline: 2px solid transparent;
-  outline-offset: 2px;
-}
-
-.link:focus-visible {
-  outline: 2px solid currentColor;
-  outline-offset: 2px;
 }
 
 @-webkit-keyframes progress-loading {
@@ -2218,10 +2230,6 @@ html {
   margin-right: 0.5rem;
 }
 
-.mb-12 {
-  margin-bottom: 3rem;
-}
-
 .mb-4 {
   margin-bottom: 1rem;
 }
@@ -2234,6 +2242,14 @@ html {
   margin-right: 0.5rem;
 }
 
+.mb-12 {
+  margin-bottom: 3rem;
+}
+
+.mt-20 {
+  margin-top: 5rem;
+}
+
 .inline-block {
   display: inline-block;
 }
@@ -2244,6 +2260,10 @@ html {
 
 .flex {
   display: flex;
+}
+
+.grid {
+  display: grid;
 }
 
 .h-screen {
@@ -2262,6 +2282,10 @@ html {
   flex: 1 1 0%;
 }
 
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -2274,19 +2298,18 @@ html {
   justify-content: space-between;
 }
 
-.bg-purple-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(168 85 247 / var(--tw-bg-opacity));
-}
-
-.bg-neutral {
-  --tw-bg-opacity: 1;
-  background-color: hsl(var(--n) / var(--tw-bg-opacity));
+.gap-8 {
+  gap: 2rem;
 }
 
 .bg-gray-700 {
   --tw-bg-opacity: 1;
   background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+}
+
+.bg-neutral {
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--n) / var(--tw-bg-opacity));
 }
 
 .fill-current {
@@ -2297,22 +2320,22 @@ html {
   padding: 2.5rem;
 }
 
-.px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
-
 .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
 }
 
-.pr-2 {
+.px-2 {
+  padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
 
 .pb-12 {
   padding-bottom: 3rem;
+}
+
+.pr-2 {
+  padding-right: 0.5rem;
 }
 
 .text-center {
@@ -2321,21 +2344,6 @@ html {
 
 .align-middle {
   vertical-align: middle;
-}
-
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-}
-
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
 }
 
 .text-6xl {
@@ -2348,6 +2356,11 @@ html {
   line-height: 2rem;
 }
 
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
 .text-8xl {
   font-size: 6rem;
   line-height: 1;
@@ -2358,22 +2371,17 @@ html {
   line-height: 1;
 }
 
-.font-bold {
-  font-weight: 700;
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 
 .font-light {
   font-weight: 300;
 }
 
-.text-neutral-content {
-  --tw-text-opacity: 1;
-  color: hsl(var(--nc) / var(--tw-text-opacity));
-}
-
-.text-primary-content {
-  --tw-text-opacity: 1;
-  color: hsl(var(--pc) / var(--tw-text-opacity));
+.font-bold {
+  font-weight: 700;
 }
 
 .text-gray-400 {
@@ -2386,10 +2394,14 @@ html {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.shadow {
-  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+.text-primary-content {
+  --tw-text-opacity: 1;
+  color: hsl(var(--pc) / var(--tw-text-opacity));
+}
+
+.text-neutral-content {
+  --tw-text-opacity: 1;
+  color: hsl(var(--nc) / var(--tw-text-opacity));
 }
 
 .shadow-lg {
@@ -2398,16 +2410,25 @@ html {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.custom-card-image .card.image-full:before {
+  border-radius: 0.5rem;
+  opacity: 0.45;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@media (min-width: 768px) {
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .xl\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
